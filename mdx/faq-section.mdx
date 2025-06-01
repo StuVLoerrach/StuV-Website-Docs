@@ -1,0 +1,244 @@
+# FAQ Section
+
+The FAQ Section component displays frequently asked questions and their answers in various formats.
+
+## Overview
+
+FAQ sections help address common questions and concerns that users might have. They provide quick access to important information and can reduce support inquiries by addressing common issues proactively.
+
+## Props
+
+| Prop | Type | Description | Default |
+|------|------|-------------|---------|
+| `variant` | `string` | The variant of the FAQ section to display | `"variant1"` |
+| `title` | `string` | The main heading text | `"Frequently Asked Questions"` |
+| `subtitle` | `string` | The secondary heading text | `""` |
+| `description` | `string` | The descriptive text | `""` |
+| `faqs` | `FAQ[]` | Array of questions and answers | `[]` |
+| `backgroundColor` | `string` | Background color of the section | `"bg-white"` |
+| `textColor` | `string` | Text color of the section | `"text-gray-900"` |
+| `layout` | `"accordion" \| "grid" \| "tabs"` | Layout style | `"accordion"` |
+| `columns` | `number` | Number of columns in grid layout | `1` |
+| `showSearchBar` | `boolean` | Whether to display a search bar | `false` |
+| `categorized` | `boolean` | Whether FAQs are organized by category | `false` |
+| `categories` | `Category[]` | Array of FAQ categories | `[]` |
+
+## Variants
+
+### Variant 1: Simple Accordion
+
+A classic accordion-style FAQ with expandable questions and answers.
+
+<CodePreview
+  code={`<FAQSectionBlock
+  variant="variant1"
+  title="Frequently Asked Questions"
+  description="Find answers to common questions about our services."
+  faqs={[
+    {
+      question: "How do I create an account?",
+      answer: "You can create an account by clicking the 'Sign Up' button in the top right corner of our website and following the registration process."
+    },
+    {
+      question: "What payment methods do you accept?",
+      answer: "We accept all major credit cards, PayPal, and bank transfers. For enterprise customers, we also offer invoice billing."
+    },
+    {
+      question: "Is there a free trial available?",
+      answer: "Yes, we offer a 14-day free trial with full access to all features. No credit card required to start."
+    },
+    {
+      question: "How can I cancel my subscription?",
+      answer: "You can cancel your subscription at any time from your account settings. Your access will continue until the end of your billing period."
+    }
+  ]}
+  layout="accordion"
+/>`}
+/>
+
+### Variant 2: Grid Layout
+
+FAQs displayed in a grid format for better visual organization.
+
+<CodePreview
+  code={`<FAQSectionBlock
+  variant="variant2"
+  title="Common Questions"
+  description="Quick answers to help you get started."
+  faqs={[
+    {
+      question: "Getting Started",
+      answer: "Learn the basics of using our platform with our comprehensive onboarding guide."
+    },
+    {
+      question: "Account Management",
+      answer: "Manage your profile, billing, and preferences from your account dashboard."
+    },
+    {
+      question: "Technical Support",
+      answer: "Our technical team is available 24/7 to help with any issues you encounter."
+    },
+    {
+      question: "Billing & Pricing",
+      answer: "Transparent pricing with no hidden fees. Upgrade or downgrade anytime."
+    },
+    {
+      question: "Security & Privacy",
+      answer: "Your data is protected with enterprise-grade security and encryption."
+    },
+    {
+      question: "Integrations",
+      answer: "Connect with your favorite tools through our extensive integration library."
+    }
+  ]}
+  layout="grid"
+  columns={2}
+  backgroundColor="bg-gray-50"
+/>`}
+/>
+
+### Variant 3: Searchable FAQ
+
+FAQ section with search functionality to help users find specific answers.
+
+<CodePreview
+  code={`<FAQSectionBlock
+  variant="variant3"
+  title="Help Center"
+  description="Search our knowledge base for instant answers."
+  showSearchBar={true}
+  faqs={[
+    {
+      question: "How do I reset my password?",
+      answer: "Click on 'Forgot Password' on the login page and follow the instructions sent to your email.",
+      tags: ["password", "login", "account", "security"]
+    },
+    {
+      question: "Can I export my data?",
+      answer: "Yes, you can export your data in various formats including CSV, JSON, and PDF from the settings page.",
+      tags: ["export", "data", "backup", "settings"]
+    },
+    {
+      question: "How do I invite team members?",
+      answer: "Go to Team Settings and click 'Invite Members'. Enter their email addresses and select their roles.",
+      tags: ["team", "collaboration", "invite", "members"]
+    },
+    {
+      question: "What are the system requirements?",
+      answer: "Our platform works on all modern browsers. For mobile apps, iOS 12+ and Android 8+ are required.",
+      tags: ["requirements", "browser", "mobile", "compatibility"]
+    },
+    {
+      question: "How do I upgrade my plan?",
+      answer: "Visit the Billing section in your account settings to view and upgrade to different plans.",
+      tags: ["upgrade", "billing", "plan", "subscription"]
+    }
+  ]}
+  layout="accordion"
+/>`}
+/>
+
+### Variant 4: Categorized FAQ
+
+FAQs organized by categories with tabbed navigation.
+
+<CodePreview
+  code={`<FAQSectionBlock
+  variant="variant4"
+  title="Support Documentation"
+  description="Browse questions by category."
+  categorized={true}
+  categories={[
+    {
+      name: "Getting Started",
+      slug: "getting-started",
+      faqs: [
+        {
+          question: "How do I create my first project?",
+          answer: "After signing up, click 'New Project' on your dashboard and follow the setup wizard."
+        },
+        {
+          question: "What's included in the onboarding?",
+          answer: "Our onboarding includes a guided tour, sample projects, and access to our learning resources."
+        }
+      ]
+    },
+    {
+      name: "Account & Billing",
+      slug: "account-billing",
+      faqs: [
+        {
+          question: "How do I update my billing information?",
+          answer: "Go to Account Settings > Billing to update your payment method and billing address."
+        },
+        {
+          question: "Can I get a refund?",
+          answer: "We offer a 30-day money-back guarantee for all new subscriptions."
+        }
+      ]
+    },
+    {
+      name: "Technical Issues",
+      slug: "technical",
+      faqs: [
+        {
+          question: "Why is my project not loading?",
+          answer: "Check your internet connection and try refreshing the page. If the issue persists, contact support."
+        },
+        {
+          question: "How do I report a bug?",
+          answer: "Use the 'Report Bug' button in the help menu or email us at bugs@example.com with details."
+        }
+      ]
+    }
+  ]}
+  layout="tabs"
+/>`}
+/>
+
+## Usage
+
+\`\`\`tsx
+import { FAQSectionBlock } from "./faq-section";
+
+export default function SupportPage() {
+  return (
+    <main>
+      <FAQSectionBlock
+        variant="variant3"
+        title="Frequently Asked Questions"
+        description="Find answers to common questions or search for specific topics."
+        showSearchBar={true}
+        faqs={[
+          {
+            question: "How do I get started?",
+            answer: "Sign up for an account and follow our quick start guide to begin using the platform.",
+            tags: ["getting started", "signup", "guide"]
+          },
+          {
+            question: "Is my data secure?",
+            answer: "Yes, we use industry-standard encryption and security measures to protect your data.",
+            tags: ["security", "data", "privacy", "encryption"]
+          },
+          {
+            question: "Can I integrate with other tools?",
+            answer: "We offer integrations with popular tools like Slack, Google Workspace, and many others.",
+            tags: ["integrations", "tools", "api", "connections"]
+          }
+        ]}
+        backgroundColor="bg-white"
+        layout="accordion"
+      />
+    </main>
+  );
+}
+\`\`\`
+
+## Accessibility
+
+- Accordion items are properly labeled with ARIA attributes
+- Keyboard navigation is fully supported
+- Search functionality includes proper focus management
+- Screen readers can navigate through questions and answers
+- Color contrast meets WCAG AA standards
+\`\`\`

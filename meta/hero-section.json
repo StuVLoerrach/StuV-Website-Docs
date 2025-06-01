@@ -1,0 +1,58 @@
+{
+  "id": "hero-section",
+  "name": "Hero Section",
+  "description": "Eye-catching hero sections for landing pages and main content areas",
+  "category": "layout",
+  "variants": 9,
+  "tags": ["hero", "landing", "header", "main"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "required": true,
+      "options": [
+        "variant1",
+        "variant2",
+        "variant3",
+        "variant4",
+        "variant5",
+        "variant6",
+        "variant7",
+        "variant8",
+        "variant9"
+      ],
+      "description": "The visual variant of the hero section"
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "description": "Main hero title"
+    },
+    "subtitle": {
+      "type": "string",
+      "required": false,
+      "description": "Hero subtitle or description"
+    },
+    "backgroundImage": {
+      "type": "string",
+      "required": false,
+      "description": "Background image URL"
+    },
+    "ctaButtons": {
+      "type": "array",
+      "required": false,
+      "description": "Array of call-to-action buttons"
+    }
+  },
+  "examples": [
+    {
+      "name": "Simple Hero",
+      "description": "Basic hero with title and subtitle",
+      "code": "examples/hero-section/simple.tsx"
+    },
+    {
+      "name": "Hero with Background",
+      "description": "Hero section with background image",
+      "code": "examples/hero-section/with-background.tsx"
+    }
+  ]
+}

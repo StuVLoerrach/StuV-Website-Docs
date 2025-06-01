@@ -1,0 +1,54 @@
+{
+  "id": "banner-section",
+  "name": "Banner Section",
+  "description": "Versatile banner component for announcements, promotions, and important messages",
+  "category": "marketing",
+  "variants": 6,
+  "tags": ["banner", "announcement", "promotion", "marketing"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "required": true,
+      "options": ["variant1", "variant2", "variant3", "variant4", "variant5", "variant6"],
+      "description": "The visual variant of the banner"
+    },
+    "title": {
+      "type": "string",
+      "required": false,
+      "description": "Main banner title"
+    },
+    "description": {
+      "type": "string",
+      "required": false,
+      "description": "Banner description text"
+    },
+    "ctaText": {
+      "type": "string",
+      "required": false,
+      "description": "Call-to-action button text"
+    },
+    "ctaLink": {
+      "type": "string",
+      "required": false,
+      "description": "Call-to-action button link"
+    },
+    "dismissible": {
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "description": "Whether the banner can be dismissed"
+    }
+  },
+  "examples": [
+    {
+      "name": "Basic Banner",
+      "description": "Simple banner with title and description",
+      "code": "examples/banner-section/basic-usage.tsx"
+    },
+    {
+      "name": "Promotional Banner",
+      "description": "Banner with CTA button for promotions",
+      "code": "examples/banner-section/promotional.tsx"
+    }
+  ]
+}

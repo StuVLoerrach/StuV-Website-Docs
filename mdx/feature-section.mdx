@@ -1,0 +1,284 @@
+# Feature Section
+
+The Feature Section component showcases key features, benefits, or services offered.
+
+## Overview
+
+Feature sections help highlight the main capabilities, benefits, or services of your product or organization. They are designed to communicate value propositions clearly and effectively.
+
+## Props
+
+| Prop | Type | Description | Default |
+|------|------|-------------|---------|
+| `variant` | `string` | The variant of the feature section to display | `"variant1"` |
+| `title` | `string` | The main heading text | `""` |
+| `subtitle` | `string` | The secondary heading text | `""` |
+| `description` | `string` | The descriptive text | `""` |
+| `features` | `Feature[]` | Array of features to display | `[]` |
+| `backgroundColor` | `string` | Background color of the section | `"bg-white"` |
+| `textColor` | `string` | Text color of the section | `"text-gray-900"` |
+| `layout` | `"grid" \| "list" \| "alternating"` | Layout style | `"grid"` |
+| `columns` | `number` | Number of columns in grid layout | `3` |
+| `alignment` | `"left" \| "center" \| "right"` | Text alignment | `"center"` |
+| `iconStyle` | `"outline" \| "solid" \| "duotone" \| "none"` | Style of icons | `"outline"` |
+| `iconColor` | `string` | Color of icons | `"text-primary"` |
+
+## Variants
+
+### Variant 1: Icon Grid
+
+A grid layout with icons representing each feature.
+
+<CodePreview
+  code={`<FeatureSectionBlock
+  variant="variant1"
+  title="Key Features"
+  description="Everything you need to succeed."
+  features={[
+    {
+      icon: "Zap",
+      title: "Lightning Fast",
+      description: "Our platform is optimized for speed and performance."
+    },
+    {
+      icon: "Shield",
+      title: "Secure",
+      description: "Enterprise-grade security to protect your data."
+    },
+    {
+      icon: "Smartphone",
+      title: "Mobile Friendly",
+      description: "Works seamlessly on all devices and screen sizes."
+    },
+    {
+      icon: "BarChart",
+      title: "Analytics",
+      description: "Comprehensive analytics to track your progress."
+    },
+    {
+      icon: "Users",
+      title: "Collaboration",
+      description: "Work together with your team in real-time."
+    },
+    {
+      icon: "Clock",
+      title: "Time-Saving",
+      description: "Automate repetitive tasks and save time."
+    }
+  ]}
+  columns={3}
+  alignment="center"
+/>`}
+/>
+
+### Variant 2: Feature Cards
+
+Features displayed as cards with more detailed information.
+
+<CodePreview
+  code={`<FeatureSectionBlock
+  variant="variant2"
+  title="Our Services"
+  subtitle="Comprehensive Solutions"
+  description="We offer a range of services to meet your business needs."
+  features={[
+    {
+      icon: "Code",
+      title: "Web Development",
+      description: "Custom websites and web applications built with the latest technologies.",
+      link: "/services/web-development"
+    },
+    {
+      icon: "Smartphone",
+      title: "Mobile Apps",
+      description: "Native and cross-platform mobile applications for iOS and Android.",
+      link: "/services/mobile-apps"
+    },
+    {
+      icon: "Search",
+      title: "SEO Optimization",
+      description: "Improve your search rankings and drive more traffic to your website.",
+      link: "/services/seo"
+    }
+  ]}
+  layout="grid"
+  columns={3}
+  backgroundColor="bg-gray-50"
+/>`}
+/>
+
+### Variant 3: Alternating Layout
+
+Features displayed in an alternating left-right layout with images.
+
+<CodePreview
+  code={`<FeatureSectionBlock
+  variant="variant3"
+  title="Platform Capabilities"
+  description="Discover what our platform can do for you."
+  features={[
+    {
+      title: "Advanced Analytics",
+      description: "Gain insights into your business with our powerful analytics tools. Track performance, identify trends, and make data-driven decisions.",
+      image: "/images/analytics-feature.jpg"
+    },
+    {
+      title: "Team Collaboration",
+      description: "Work seamlessly with your team members. Share files, assign tasks, and communicate in real-time to boost productivity.",
+      image: "/images/collaboration-feature.jpg"
+    },
+    {
+      title: "Automation Tools",
+      description: "Automate repetitive tasks and workflows. Save time and reduce errors with our intuitive automation capabilities.",
+      image: "/images/automation-feature.jpg"
+    }
+  ]}
+  layout="alternating"
+/>`}
+/>
+
+### Variant 4: Feature Tabs
+
+Features organized in tabs for compact presentation.
+
+<CodePreview
+  code={`<FeatureSectionBlock
+  variant="variant4"
+  title="Product Features"
+  description="Explore the capabilities of our product."
+  features={[
+    {
+      icon: "Layout",
+      title: "Intuitive Interface",
+      description: "Our user-friendly interface makes it easy to navigate and use all features without a steep learning curve.",
+      details: "The interface is designed with user experience in mind, featuring logical navigation, clear labels, and helpful tooltips."
+    },
+    {
+      icon: "RefreshCw",
+      title: "Seamless Integration",
+      description: "Integrate with your existing tools and workflows without disruption.",
+      details: "Our API and pre-built connectors allow for easy integration with popular tools like Slack, Google Workspace, Microsoft 365, and more."
+    },
+    {
+      icon: "Lock",
+      title: "Advanced Security",
+      description: "Keep your data safe with our enterprise-grade security features.",
+      details: "We implement end-to-end encryption, regular security audits, two-factor authentication, and comply with industry standards like SOC 2 and GDPR."
+    },
+    {
+      icon: "BarChart2",
+      title: "Detailed Reporting",
+      description: "Generate comprehensive reports to track progress and performance.",
+      details: "Our reporting tools offer customizable dashboards, exportable reports in multiple formats, scheduled report delivery, and data visualization options."
+    }
+  ]}
+  layout="tabs"
+/>`}
+/>
+
+### Variant 5: Feature Comparison
+
+Compare features across different tiers or options.
+
+<CodePreview
+  code={`<FeatureSectionBlock
+  variant="variant5"
+  title="Plan Comparison"
+  description="Choose the plan that's right for you."
+  plans={[
+    {
+      name: "Basic",
+      price: "$9/month",
+      features: [
+        { name: "5 Projects", included: true },
+        { name: "10GB Storage", included: true },
+        { name: "Basic Analytics", included: true },
+        { name: "Email Support", included: true },
+        { name: "API Access", included: false },
+        { name: "Custom Branding", included: false }
+      ]
+    },
+    {
+      name: "Pro",
+      price: "$29/month",
+      popular: true,
+      features: [
+        { name: "20 Projects", included: true },
+        { name: "50GB Storage", included: true },
+        { name: "Advanced Analytics", included: true },
+        { name: "Priority Support", included: true },
+        { name: "API Access", included: true },
+        { name: "Custom Branding", included: false }
+      ]
+    },
+    {
+      name: "Enterprise",
+      price: "$99/month",
+      features: [
+        { name: "Unlimited Projects", included: true },
+        { name: "250GB Storage", included: true },
+        { name: "Custom Analytics", included: true },
+        { name: "24/7 Support", included: true },
+        { name: "API Access", included: true },
+        { name: "Custom Branding", included: true }
+      ]
+    }
+  ]}
+/>`}
+/>
+
+## Usage
+
+\`\`\`tsx
+import { FeatureSectionBlock } from "./feature-variant";
+
+export default function FeaturesPage() {
+  return (
+    <main>
+      <FeatureSectionBlock
+        variant="variant1"
+        title="Why Choose Us"
+        subtitle="Our Advantages"
+        description="We provide innovative solutions to help your business grow."
+        features={[
+          {
+            icon: "Award",
+            title: "Quality Service",
+            description: "We pride ourselves on delivering the highest quality service to our clients."
+          },
+          {
+            icon: "Clock",
+            title: "Fast Turnaround",
+            description: "Our efficient processes ensure quick delivery without compromising quality."
+          },
+          {
+            icon: "ThumbsUp",
+            title: "Customer Satisfaction",
+            description: "We're not happy until you're happy. Your satisfaction is our top priority."
+          },
+          {
+            icon: "DollarSign",
+            title: "Competitive Pricing",
+            description: "Get excellent value for your investment with our transparent pricing."
+          }
+        ]}
+        columns={2}
+        alignment="left"
+        iconStyle="solid"
+        iconColor="text-emerald-500"
+      />
+      
+      {/* Rest of your page content */}
+    </main>
+  );
+}
+\`\`\`
+
+## Accessibility
+
+- Icons have appropriate aria-hidden attributes
+- Proper heading hierarchy is maintained
+- Interactive elements are keyboard accessible
+- Color contrast meets WCAG AA standards
+- Tab interfaces follow WAI-ARIA best practices
+\`\`\`

@@ -1,0 +1,308 @@
+# Testimonials Section
+
+The Testimonials Section component displays customer reviews, feedback, and success stories.
+
+## Overview
+
+Testimonials sections build trust and credibility by showcasing positive feedback from real customers. They provide social proof and help potential customers understand the value of your products or services.
+
+## Props
+
+| Prop | Type | Description | Default |
+|------|------|-------------|---------|
+| `variant` | `string` | The variant of the testimonials section to display | `"variant1"` |
+| `title` | `string` | The main heading text | `"What Our Customers Say"` |
+| `subtitle` | `string` | The secondary heading text | `""` |
+| `description` | `string` | The descriptive text | `""` |
+| `testimonials` | `Testimonial[]` | Array of testimonials to display | `[]` |
+| `backgroundColor` | `string` | Background color of the section | `"bg-white"` |
+| `textColor` | `string` | Text color of the section | `"text-gray-900"` |
+| `layout` | `"grid" \| "carousel" \| "masonry" \| "featured"` | Layout style | `"grid"` |
+| `columns` | `number` | Number of columns in grid layout | `3` |
+| `showRatings` | `boolean` | Whether to display star ratings | `true` |
+| `showCompanyLogos` | `boolean` | Whether to display company logos | `false` |
+| `autoplay` | `boolean` | Whether to autoplay carousel | `true` |
+
+## Variants
+
+### Variant 1: Basic Testimonials Grid
+
+A clean grid layout displaying customer testimonials with ratings.
+
+<CodePreview
+  code={`<TestimonialsSectionBlock
+  variant="variant1"
+  title="Customer Reviews"
+  description="See what our customers have to say about their experience."
+  testimonials={[
+    {
+      quote: "This platform has completely transformed how we manage our projects. The interface is intuitive and the features are exactly what we needed.",
+      author: "Sarah Mitchell",
+      role: "Project Manager",
+      company: "TechCorp Inc.",
+      avatar: "/images/testimonials/sarah.jpg",
+      rating: 5
+    },
+    {
+      quote: "Outstanding customer support and a product that delivers on its promises. We've seen a 40% increase in productivity since switching.",
+      author: "David Chen",
+      role: "Operations Director",
+      company: "Growth Solutions",
+      avatar: "/images/testimonials/david.jpg",
+      rating: 5
+    },
+    {
+      quote: "The best investment we've made for our business. Easy to use, powerful features, and excellent value for money.",
+      author: "Maria Rodriguez",
+      role: "CEO",
+      company: "StartupXYZ",
+      avatar: "/images/testimonials/maria.jpg",
+      rating: 5
+    }
+  ]}
+  layout="grid"
+  columns={3}
+  showRatings={true}
+/>`}
+/>
+
+### Variant 2: Featured Testimonial
+
+Highlighting a key testimonial with supporting quotes.
+
+<CodePreview
+  code={`<TestimonialsSectionBlock
+  variant="variant2"
+  title="Success Stories"
+  featuredTestimonial={{
+    quote: "Working with this team has been a game-changer for our business. They understood our needs perfectly and delivered a solution that exceeded our expectations. Our revenue has increased by 150% since implementation.",
+    author: "Jennifer Adams",
+    role: "Founder & CEO",
+    company: "InnovateCorp",
+    avatar: "/images/testimonials/jennifer.jpg",
+    companyLogo: "/images/logos/innovatecorp.png",
+    rating: 5,
+    metrics: [
+      { label: "Revenue Increase", value: "150%" },
+      { label: "Time Saved", value: "20 hrs/week" },
+      { label: "Customer Satisfaction", value: "98%" }
+    ]
+  }}
+  supportingTestimonials={[
+    {
+      quote: "Excellent service and support.",
+      author: "John Smith",
+      company: "TechStart",
+      rating: 5
+    },
+    {
+      quote: "Highly recommend to anyone.",
+      author: "Lisa Wang",
+      company: "Digital Agency",
+      rating: 5
+    }
+  ]}
+  showCompanyLogos={true}
+/>`}
+/>
+
+### Variant 3: Video Testimonials
+
+Testimonials featuring video content from customers.
+
+<CodePreview
+  code={`<TestimonialsSectionBlock
+  variant="variant3"
+  title="Customer Stories"
+  description="Hear directly from our customers about their experience."
+  testimonials={[
+    {
+      type: "video",
+      videoUrl: "/videos/testimonial-sarah.mp4",
+      thumbnail: "/images/testimonials/sarah-video-thumb.jpg",
+      quote: "This solution has revolutionized our workflow and saved us countless hours.",
+      author: "Sarah Johnson",
+      role: "Operations Manager",
+      company: "Efficiency Corp",
+      duration: "2:30"
+    },
+    {
+      type: "video",
+      videoUrl: "/videos/testimonial-mike.mp4",
+      thumbnail: "/images/testimonials/mike-video-thumb.jpg",
+      quote: "The ROI we've seen is incredible. Best business decision we've made.",
+      author: "Mike Thompson",
+      role: "CEO",
+      company: "Growth Industries",
+      duration: "1:45"
+    },
+    {
+      type: "text",
+      quote: "Simple, powerful, and effective. Everything we needed in one platform.",
+      author: "Emma Wilson",
+      role: "Marketing Director",
+      company: "Creative Solutions",
+      avatar: "/images/testimonials/emma.jpg",
+      rating: 5
+    }
+  ]}
+  layout="grid"
+  columns={3}
+/>`}
+/>
+
+### Variant 4: Testimonials Carousel
+
+A sliding carousel showcasing multiple testimonials.
+
+<CodePreview
+  code={`<TestimonialsSectionBlock
+  variant="variant4"
+  title="What People Are Saying"
+  description="Join thousands of satisfied customers."
+  testimonials={[
+    {
+      quote: "The platform is incredibly user-friendly and has all the features we need. Customer support is top-notch too!",
+      author: "Alex Rodriguez",
+      role: "Product Manager",
+      company: "Innovation Labs",
+      avatar: "/images/testimonials/alex.jpg",
+      rating: 5
+    },
+    {
+      quote: "We've tried many solutions, but this one stands out. The integration capabilities are fantastic.",
+      author: "Rachel Green",
+      role: "IT Director",
+      company: "Enterprise Solutions",
+      avatar: "/images/testimonials/rachel.jpg",
+      rating: 5
+    },
+    {
+      quote: "Exceptional value and performance. Our team productivity has increased significantly.",
+      author: "Tom Wilson",
+      role: "Team Lead",
+      company: "Productivity Plus",
+      avatar: "/images/testimonials/tom.jpg",
+      rating: 5
+    },
+    {
+      quote: "The analytics and reporting features give us insights we never had before.",
+      author: "Sophie Chen",
+      role: "Data Analyst",
+      company: "Insights Corp",
+      avatar: "/images/testimonials/sophie.jpg",
+      rating: 5
+    }
+  ]}
+  layout="carousel"
+  autoplay={true}
+  showRatings={true}
+  backgroundColor="bg-blue-50"
+/>`}
+/>
+
+### Variant 5: Company Testimonials
+
+Testimonials featuring company logos and detailed case studies.
+
+<CodePreview
+  code={`<TestimonialsSectionBlock
+  variant="variant5"
+  title="Trusted by Leading Companies"
+  description="See how industry leaders are using our platform."
+  testimonials={[
+    {
+      quote: "This platform has become an integral part of our daily operations. The scalability and reliability are exactly what we needed for our growing business.",
+      author: "Michael Brown",
+      role: "CTO",
+      company: "TechGiant Corp",
+      companyLogo: "/images/logos/techgiant.png",
+      avatar: "/images/testimonials/michael.jpg",
+      rating: 5,
+      caseStudyUrl: "/case-studies/techgiant",
+      results: [
+        "50% reduction in processing time",
+        "99.9% uptime achieved",
+        "$2M annual cost savings"
+      ]
+    },
+    {
+      quote: "The customer support team is phenomenal. They helped us migrate our entire system seamlessly.",
+      author: "Amanda Davis",
+      role: "VP of Operations",
+      company: "Global Enterprises",
+      companyLogo: "/images/logos/global-enterprises.png",
+      avatar: "/images/testimonials/amanda.jpg",
+      rating: 5,
+      caseStudyUrl: "/case-studies/global-enterprises",
+      results: [
+        "Zero downtime migration",
+        "30% improvement in efficiency",
+        "Complete team adoption in 2 weeks"
+      ]
+    }
+  ]}
+  layout="featured"
+  showCompanyLogos={true}
+  backgroundColor="bg-gray-50"
+/>`}
+/>
+
+## Usage
+
+\`\`\`tsx
+import { TestimonialsSectionBlock } from "./testimonials-section";
+
+export default function HomePage() {
+  return (
+    <main>
+      <TestimonialsSectionBlock
+        variant="variant1"
+        title="What Our Customers Say"
+        subtitle="Real feedback from real customers"
+        description="Don't just take our word for it - see what our customers have to say about their experience."
+        testimonials={[
+          {
+            quote: "This product has exceeded all our expectations. The team is responsive and the platform is incredibly reliable.",
+            author: "John Doe",
+            role: "CEO",
+            company: "Example Corp",
+            avatar: "/images/testimonials/john.jpg",
+            rating: 5
+          },
+          {
+            quote: "We've seen a 200% increase in efficiency since implementing this solution. Highly recommended!",
+            author: "Jane Smith",
+            role: "Operations Manager",
+            company: "Efficiency Inc",
+            avatar: "/images/testimonials/jane.jpg",
+            rating: 5
+          },
+          {
+            quote: "The best customer service I've ever experienced. They truly care about their customers' success.",
+            author: "Bob Johnson",
+            role: "Project Manager",
+            company: "Success Ltd",
+            avatar: "/images/testimonials/bob.jpg",
+            rating: 5
+          }
+        ]}
+        layout="grid"
+        columns={3}
+        showRatings={true}
+        backgroundColor="bg-white"
+      />
+    </main>
+  );
+}
+\`\`\`
+
+## Accessibility
+
+- All testimonials are properly structured with semantic HTML
+- Star ratings include text alternatives for screen readers
+- Video testimonials include captions and transcripts
+- Carousel controls are keyboard accessible
+- Focus management follows best practices
+- Color contrast meets WCAG AA standards
+\`\`\`

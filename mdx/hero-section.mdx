@@ -1,0 +1,221 @@
+# Hero Section
+
+The Hero Section component is a prominent, attention-grabbing section typically placed at the top of a page.
+
+## Overview
+
+Hero sections are designed to make a strong first impression and communicate the main message or value proposition of a page. They often include compelling visuals, concise text, and clear calls to action.
+
+## Props
+
+| Prop | Type | Description | Default |
+|------|------|-------------|---------|
+| `variant` | `string` | The variant of the hero section to display | `"variant1"` |
+| `title` | `string` | The main heading text | `""` |
+| `subtitle` | `string` | The secondary heading text | `""` |
+| `description` | `string` | The descriptive text | `""` |
+| `backgroundImage` | `string` | URL of the background image | `""` |
+| `backgroundVideo` | `string` | URL of the background video | `""` |
+| `primaryButtonText` | `string` | Text for the primary CTA button | `""` |
+| `primaryButtonUrl` | `string` | URL for the primary CTA button | `""` |
+| `secondaryButtonText` | `string` | Text for the secondary button | `""` |
+| `secondaryButtonUrl` | `string` | URL for the secondary button | `""` |
+| `alignment` | `"left" \| "center" \| "right"` | Text alignment | `"center"` |
+| `height` | `"small" \| "medium" \| "large" \| "full"` | Height of the hero section | `"medium"` |
+| `overlayOpacity` | `number` | Opacity of the background overlay (0-100) | `50` |
+| `textColor` | `string` | Color of the text | `"text-white"` |
+
+## Variants
+
+### Variant 1: Simple Hero
+
+A clean, minimal hero with heading, description, and call-to-action buttons.
+
+<CodePreview
+  code={`<HeroSectionBlock
+  variant="variant1"
+  title="Welcome to Our Platform"
+  description="The all-in-one solution for your business needs."
+  primaryButtonText="Get Started"
+  primaryButtonUrl="/signup"
+  secondaryButtonText="Learn More"
+  secondaryButtonUrl="/about"
+  alignment="center"
+/>`}
+/>
+
+### Variant 2: Image Background Hero
+
+Hero with a background image and text overlay.
+
+<CodePreview
+  code={`<HeroSectionBlock
+  variant="variant2"
+  title="Discover New Possibilities"
+  subtitle="Innovative Solutions for Modern Challenges"
+  description="Our platform helps you achieve your goals faster and more efficiently."
+  backgroundImage="/images/hero-background.jpg"
+  primaryButtonText="Start Now"
+  primaryButtonUrl="/demo"
+  overlayOpacity={60}
+  height="large"
+/>`}
+/>
+
+### Variant 3: Video Background Hero
+
+Hero with a background video for dynamic visual impact.
+
+<CodePreview
+  code={`<HeroSectionBlock
+  variant="variant3"
+  title="Experience the Difference"
+  description="See how our solutions transform businesses."
+  backgroundVideo="/videos/hero-background.mp4"
+  primaryButtonText="Watch Demo"
+  primaryButtonUrl="/demo"
+  textColor="text-white"
+  height="full"
+/>`}
+/>
+
+### Variant 4: Split Hero
+
+Hero with content on one side and image/video on the other.
+
+<CodePreview
+  code={`<HeroSectionBlock
+  variant="variant4"
+  title="Built for Growth"
+  description="Our platform scales with your business, providing the tools you need at every stage."
+  image="/images/product-showcase.jpg"
+  primaryButtonText="Try It Free"
+  primaryButtonUrl="/trial"
+  alignment="left"
+/>`}
+/>
+
+### Variant 5: Hero with Form
+
+Hero section with an integrated signup or contact form.
+
+<CodePreview
+  code={`<HeroSectionBlock
+  variant="variant5"
+  title="Join Our Community"
+  description="Get access to exclusive content and updates."
+  formType="signup"
+  formFields={["name", "email"]}
+  submitButtonText="Subscribe"
+  alignment="center"
+/>`}
+/>
+
+### Variant 6: Hero with Features
+
+Hero that highlights key features or benefits.
+
+<CodePreview
+  code={`<HeroSectionBlock
+  variant="variant6"
+  title="One Platform, Multiple Solutions"
+  description="Everything you need to succeed in one place."
+  features={[
+    { icon: "Check", title: "Easy to Use", description: "Intuitive interface" },
+    { icon: "Shield", title: "Secure", description: "Enterprise-grade security" },
+    { icon: "Zap", title: "Fast", description: "Optimized performance" }
+  ]}
+  primaryButtonText="Get Started"
+  primaryButtonUrl="/signup"
+/>`}
+/>
+
+### Variant 7: Animated Hero
+
+Hero with animated elements for visual interest.
+
+<CodePreview
+  code={`<HeroSectionBlock
+  variant="variant7"
+  title="Innovation Reimagined"
+  description="Discover the future of digital experiences."
+  animationType="fadeIn"
+  primaryButtonText="Explore"
+  primaryButtonUrl="/products"
+  backgroundGradient="bg-gradient-to-r from-purple-500 to-blue-500"
+/>`}
+/>
+
+### Variant 8: Hero with Stats
+
+Hero that showcases important statistics or achievements.
+
+<CodePreview
+  code={`<HeroSectionBlock
+  variant="variant8"
+  title="Trusted by Thousands"
+  description="Join the companies already benefiting from our platform."
+  stats={[
+    { value: "10k+", label: "Users" },
+    { value: "500+", label: "Companies" },
+    { value: "99.9%", label: "Uptime" }
+  ]}
+  primaryButtonText="Join Them"
+  primaryButtonUrl="/customers"
+/>`}
+/>
+
+### Variant 9: Hero with Testimonial
+
+Hero featuring a prominent customer testimonial.
+
+<CodePreview
+  code={`<HeroSectionBlock
+  variant="variant9"
+  title="Don't Just Take Our Word For It"
+  testimonial={{
+    quote: "This platform has transformed how we operate. We've seen a 40% increase in productivity.",
+    author: "Jane Smith",
+    role: "CEO, TechCorp",
+    avatar: "/images/testimonial-avatar.jpg"
+  }}
+  primaryButtonText="Read More Stories"
+  primaryButtonUrl="/testimonials"
+/>`}
+/>
+
+## Usage
+
+\`\`\`tsx
+import { HeroSectionBlock } from "./hero-section";
+
+export default function HomePage() {
+  return (
+    <main>
+      <HeroSectionBlock
+        variant="variant2"
+        title="Build Better Websites"
+        subtitle="Fast, Flexible, and User-Friendly"
+        description="Create stunning web experiences with our comprehensive component library."
+        backgroundImage="/images/hero-background.jpg"
+        primaryButtonText="Get Started"
+        primaryButtonUrl="/docs"
+        secondaryButtonText="View Demo"
+        secondaryButtonUrl="/demo"
+        height="large"
+      />
+      
+      {/* Rest of your page content */}
+    </main>
+  );
+}
+\`\`\`
+
+## Accessibility
+
+- All text meets WCAG AA contrast requirements
+- Videos include appropriate controls and can be paused
+- Interactive elements are keyboard accessible
+- Proper heading hierarchy is maintained
+- Images include descriptive alt text
+\`\`\`

@@ -1,0 +1,305 @@
+# Contact Section
+
+The Contact Section component provides various layouts for contact forms and information.
+
+## Overview
+
+Contact sections allow users to get in touch with your organization through forms, display contact information, and provide location details. These components are essential for creating effective communication channels on your website.
+
+## Props
+
+| Prop | Type | Description | Default |
+|------|------|-------------|---------|
+| `variant` | `string` | The variant of the contact section to display | `"variant1"` |
+| `title` | `string` | The main heading text | `"Contact Us"` |
+| `subtitle` | `string` | The secondary heading text | `""` |
+| `description` | `string` | The descriptive text | `""` |
+| `formConfig` | `FormConfig` | Configuration for the contact form | `defaultFormConfig` |
+| `contactInfo` | `ContactInfo` | Contact information to display | `{}` |
+| `mapLocation` | `MapLocation` | Location data for map display | `null` |
+| `backgroundColor` | `string` | Background color of the section | `"bg-white"` |
+| `textColor` | `string` | Text color of the section | `"text-gray-900"` |
+| `layout` | `"standard" \| "split" \| "centered"` | Layout style | `"standard"` |
+| `showSocialLinks` | `boolean` | Whether to display social media links | `false` |
+| `socialLinks` | `SocialLink[]` | Array of social media links | `[]` |
+
+## Variants
+
+### Variant 1: Simple Contact Form
+
+A clean, straightforward contact form with basic fields.
+
+<CodePreview
+  code={`<ContactSectionBlock
+  variant="variant1"
+  title="Get in Touch"
+  description="Have questions? We'd love to hear from you."
+  formConfig={{
+    fields: [
+      { name: "name", label: "Name", type: "text", required: true },
+      { name: "email", label: "Email", type: "email", required: true },
+      { name: "message", label: "Message", type: "textarea", required: true }
+    ],
+    submitButtonText: "Send Message"
+  }}
+/>`}
+/>
+
+### Variant 2: Contact Form with Info
+
+Contact form alongside contact information.
+
+<CodePreview
+  code={`<ContactSectionBlock
+  variant="variant2"
+  title="Contact Us"
+  description="Reach out to our team for any inquiries."
+  formConfig={{
+    fields: [
+      { name: "name", label: "Name", type: "text", required: true },
+      { name: "email", label: "Email", type: "email", required: true },
+      { name: "subject", label: "Subject", type: "text", required: true },
+      { name: "message", label: "Message", type: "textarea", required: true }
+    ],
+    submitButtonText: "Submit"
+  }}
+  contactInfo={{
+    email: "info@example.com",
+    phone: "+1 (555) 123-4567",
+    address: "123 Main St, City, Country"
+  }}
+  showSocialLinks={true}
+  socialLinks={[
+    { platform: "twitter", url: "https://twitter.com/example" },
+    { platform: "facebook", url: "https://facebook.com/example" },
+    { platform: "linkedin", url: "https://linkedin.com/company/example" }
+  ]}
+  layout="split"
+/>`}
+/>
+
+### Variant 3: Contact with Map
+
+Contact form with an interactive map showing location.
+
+<CodePreview
+  code={`<ContactSectionBlock
+  variant="variant3"
+  title="Visit or Contact Us"
+  description="Find us at our office or reach out online."
+  formConfig={{
+    fields: [
+      { name: "name", label: "Name", type: "text", required: true },
+      { name: "email", label: "Email", type: "email", required: true },
+      { name: "message", label: "Message", type: "textarea", required: true }
+    ],
+    submitButtonText: "Send"
+  }}
+  contactInfo={{
+    email: "support@example.com",
+    phone: "+1 (555) 987-6543",
+    address: "456 Business Ave, Suite 200, City, Country"
+  }}
+  mapLocation={{
+    latitude: 40.7128,
+    longitude: -74.0060,
+    zoom: 15
+  }}
+/>`}
+/>
+
+### Variant 4: Department Directory
+
+Contact section organized by departments or teams.
+
+<CodePreview
+  code={`<ContactSectionBlock
+  variant="variant4"
+  title="Department Directory"
+  description="Contact the right team for your needs."
+  departments={[
+    {
+      name: "Customer Support",
+      email: "support@example.com",
+      phone: "+1 (555) 123-4567",
+      hours: "Mon-Fri, 9am-5pm EST"
+    },
+    {
+      name: "Sales",
+      email: "sales@example.com",
+      phone: "+1 (555) 234-5678",
+      hours: "Mon-Fri, 8am-6pm EST"
+    },
+    {
+      name: "Technical Support",
+      email: "tech@example.com",
+      phone: "+1 (555) 345-6789",
+      hours: "24/7"
+    }
+  ]}
+  formConfig={{
+    fields: [
+      { name: "name", label: "Name", type: "text", required: true },
+      { name: "email", label: "Email", type: "email", required: true },
+      { name: "department", label: "Department", type: "select", options: ["Customer Support", "Sales", "Technical Support"], required: true },
+      { name: "message", label: "Message", type: "textarea", required: true }
+    ],
+    submitButtonText: "Submit Inquiry"
+  }}
+/>`}
+/>
+
+### Variant 5: Office Locations
+
+Contact section showcasing multiple office locations.
+
+<CodePreview
+  code={`<ContactSectionBlock
+  variant="variant5"
+  title="Our Offices"
+  description="Find us around the world."
+  locations={[
+    {
+      city: "New York",
+      address: "123 Broadway, New York, NY 10001",
+      phone: "+1 (212) 555-1234",
+      email: "nyc@example.com",
+      image: "/images/office-nyc.jpg"
+    },
+    {
+      city: "London",
+      address: "456 Oxford St, London W1C 1AP, UK",
+      phone: "+44 20 7123 4567",
+      email: "london@example.com",
+      image: "/images/office-london.jpg"
+    },
+    {
+      city: "Tokyo",
+      address: "789 Shibuya, Tokyo 150-0002, Japan",
+      phone: "+81 3 1234 5678",
+      email: "tokyo@example.com",
+      image: "/images/office-tokyo.jpg"
+    }
+  ]}
+  formConfig={{
+    fields: [
+      { name: "name", label: "Name", type: "text", required: true },
+      { name: "email", label: "Email", type: "email", required: true },
+      { name: "office", label: "Office", type: "select", options: ["New York", "London", "Tokyo"], required: true },
+      { name: "message", label: "Message", type: "textarea", required: true }
+    ],
+    submitButtonText: "Contact Us"
+  }}
+/>`}
+/>
+
+### Variant 6: Support Hub
+
+Comprehensive contact section with support options and FAQs.
+
+<CodePreview
+  code={`<ContactSectionBlock
+  variant="variant6"
+  title="Support Hub"
+  description="Find the help you need."
+  supportOptions={[
+    {
+      title: "Live Chat",
+      description: "Chat with our support team in real-time.",
+      icon: "MessageSquare",
+      action: { label: "Start Chat", url: "#chat" }
+    },
+    {
+      title: "Email Support",
+      description: "Send us an email and we'll respond within 24 hours.",
+      icon: "Mail",
+      action: { label: "Email Us", url: "mailto:support@example.com" }
+    },
+    {
+      title: "Phone Support",
+      description: "Call us directly for urgent matters.",
+      icon: "Phone",
+      action: { label: "Call Now", url: "tel:+15551234567" }
+    },
+    {
+      title: "Knowledge Base",
+      description: "Find answers in our documentation.",
+      icon: "BookOpen",
+      action: { label: "Browse Articles", url: "/help" }
+    }
+  ]}
+  faqs={[
+    {
+      question: "How quickly will I receive a response?",
+      answer: "We aim to respond to all inquiries within 24 hours during business days."
+    },
+    {
+      question: "Do you offer phone support?",
+      answer: "Yes, our phone support is available Monday through Friday, 9am-5pm EST."
+    },
+    {
+      question: "Can I schedule a consultation?",
+      answer: "You can schedule a consultation through our booking system."
+    }
+  ]}
+  formConfig={{
+    fields: [
+      { name: "name", label: "Name", type: "text", required: true },
+      { name: "email", label: "Email", type: "email", required: true },
+      { name: "subject", label: "Subject", type: "text", required: true },
+      { name: "message", label: "Message", type: "textarea", required: true }
+    ],
+    submitButtonText: "Submit Request"
+  }}
+/>`}
+/>
+
+## Usage
+
+\`\`\`tsx
+import { ContactSectionBlock } from "./contact-section";
+
+export default function ContactPage() {
+  return (
+    <main>
+      <ContactSectionBlock
+        variant="variant2"
+        title="Get in Touch"
+        description="We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible."
+        formConfig={{
+          fields: [
+            { name: "name", label: "Full Name", type: "text", required: true },
+            { name: "email", label: "Email Address", type: "email", required: true },
+            { name: "phone", label: "Phone Number", type: "tel", required: false },
+            { name: "subject", label: "Subject", type: "text", required: true },
+            { name: "message", label: "Your Message", type: "textarea", required: true }
+          ],
+          submitButtonText: "Send Message"
+        }}
+        contactInfo={{
+          email: "contact@yourcompany.com",
+          phone: "+1 (555) 123-4567",
+          address: "123 Business Street, Suite 100, City, State 12345"
+        }}
+        showSocialLinks={true}
+        socialLinks={[
+          { platform: "twitter", url: "https://twitter.com/yourcompany" },
+          { platform: "facebook", url: "https://facebook.com/yourcompany" },
+          { platform: "instagram", url: "https://instagram.com/yourcompany" },
+          { platform: "linkedin", url: "https://linkedin.com/company/yourcompany" }
+        ]}
+        layout="split"
+      />
+    </main>
+  );
+}
+\`\`\`
+
+## Accessibility
+
+- All form fields have proper labels and ARIA attributes
+- Error messages are announced to screen readers
+- Focus management follows best practices
+- Interactive elements are keyboard accessible
+- Color contrast meets WCAG AA standards
+\`\`\`

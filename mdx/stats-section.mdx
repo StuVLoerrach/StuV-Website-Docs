@@ -1,0 +1,355 @@
+# Stats Section
+
+The Stats Section component displays key metrics, achievements, or data points in visually appealing formats.
+
+## Overview
+
+Stats sections are perfect for showcasing important numbers, achievements, or key performance indicators. They help build credibility and communicate success metrics effectively.
+
+## Props
+
+| Prop | Type | Description | Default |
+|------|------|-------------|---------|
+| `variant` | `string` | The variant of the stats section to display | `"variant1"` |
+| `title` | `string` | The main heading text | `""` |
+| `subtitle` | `string` | The secondary heading text | `""` |
+| `description` | `string` | The descriptive text | `""` |
+| `stats` | `Stat[]` | Array of statistics to display | `[]` |
+| `backgroundColor` | `string` | Background color of the section | `"bg-white"` |
+| `textColor` | `string` | Text color of the section | `"text-gray-900"` |
+| `layout` | `"horizontal" \| "grid" \| "vertical"` | Layout style | `"horizontal"` |
+| `columns` | `number` | Number of columns in grid layout | `4` |
+| `animated` | `boolean` | Whether to animate numbers on scroll | `true` |
+| `showIcons` | `boolean` | Whether to display icons with stats | `false` |
+| `iconStyle` | `"outline" \| "solid" \| "duotone"` | Style of icons | `"outline"` |
+
+## Variants
+
+### Variant 1: Simple Stats Row
+
+A clean horizontal row of key statistics.
+
+<CodePreview
+  code={`<StatsSectionBlock
+  variant="variant1"
+  stats={[
+    { value: "10,000+", label: "Happy Customers" },
+    { value: "99.9%", label: "Uptime" },
+    { value: "24/7", label: "Support" },
+    { value: "50+", label: "Countries" }
+  ]}
+  layout="horizontal"
+  animated={true}
+/>`}
+/>
+
+### Variant 2: Stats with Icons
+
+Statistics displayed with accompanying icons for visual enhancement.
+
+<CodePreview
+  code={`<StatsSectionBlock
+  variant="variant2"
+  title="Our Impact"
+  description="See how we're making a difference."
+  stats={[
+    { 
+      value: "1M+", 
+      label: "Users Served", 
+      icon: "Users",
+      description: "Active users across our platform"
+    },
+    { 
+      value: "500+", 
+      label: "Projects Completed", 
+      icon: "CheckCircle",
+      description: "Successfully delivered projects"
+    },
+    { 
+      value: "98%", 
+      label: "Client Satisfaction", 
+      icon: "Heart",
+      description: "Based on customer feedback"
+    },
+    { 
+      value: "15+", 
+      label: "Years Experience", 
+      icon: "Award",
+      description: "In the industry"
+    }
+  ]}
+  layout="grid"
+  columns={2}
+  showIcons={true}
+  backgroundColor="bg-blue-50"
+/>`}
+/>
+
+### Variant 3: Highlighted Stats
+
+Stats with emphasis on key metrics and additional context.
+
+<CodePreview
+  code={`<StatsSectionBlock
+  variant="variant3"
+  title="Platform Performance"
+  subtitle="Real-time metrics"
+  description="Live data from our global infrastructure."
+  stats={[
+    { 
+      value: "2.5s", 
+      label: "Average Load Time",
+      trend: "down",
+      trendValue: "15%",
+      description: "Faster than industry average"
+    },
+    { 
+      value: "99.99%", 
+      label: "Availability",
+      trend: "up",
+      trendValue: "0.1%",
+      description: "Best-in-class reliability"
+    },
+    { 
+      value: "150ms", 
+      label: "Response Time",
+      trend: "down",
+      trendValue: "25%",
+      description: "Global edge network"
+    }
+  ]}
+  layout="horizontal"
+  animated={true}
+  backgroundColor="bg-gradient-to-r from-purple-500 to-blue-500"
+  textColor="text-white"
+/>`}
+/>
+
+### Variant 4: Comparison Stats
+
+Statistics comparing before and after or different metrics.
+
+<CodePreview
+  code={`<StatsSectionBlock
+  variant="variant4"
+  title="Results That Matter"
+  description="See the improvement our clients experience."
+  stats={[
+    {
+      label: "Revenue Growth",
+      before: { value: "12%", label: "Before" },
+      after: { value: "45%", label: "After" },
+      improvement: "+275%"
+    },
+    {
+      label: "Customer Acquisition",
+      before: { value: "100", label: "Monthly" },
+      after: { value: "350", label: "Monthly" },
+      improvement: "+250%"
+    },
+    {
+      label: "Conversion Rate",
+      before: { value: "2.1%", label: "Previous" },
+      after: { value: "6.8%", label: "Current" },
+      improvement: "+224%"
+    }
+  ]}
+  layout="grid"
+  columns={3}
+/>`}
+/>
+
+### Variant 5: Progress Stats
+
+Statistics with progress bars or completion indicators.
+
+<CodePreview
+  code={`<StatsSectionBlock
+  variant="variant5"
+  title="Project Progress"
+  description="Current status of our initiatives."
+  stats={[
+    {
+      label: "Website Redesign",
+      value: "85%",
+      progress: 85,
+      status: "In Progress",
+      dueDate: "Dec 15, 2024"
+    },
+    {
+      label: "Mobile App",
+      value: "100%",
+      progress: 100,
+      status: "Completed",
+      completedDate: "Nov 20, 2024"
+    },
+    {
+      label: "API Integration",
+      value: "60%",
+      progress: 60,
+      status: "In Progress",
+      dueDate: "Jan 10, 2025"
+    },
+    {
+      label: "User Testing",
+      value: "30%",
+      progress: 30,
+      status: "Planning",
+      dueDate: "Feb 1, 2025"
+    }
+  ]}
+  layout="vertical"
+/>`}
+/>
+
+### Variant 6: Financial Stats
+
+Statistics focused on financial metrics and business performance.
+
+<CodePreview
+  code={`<StatsSectionBlock
+  variant="variant6"
+  title="Financial Performance"
+  subtitle="Q4 2024 Results"
+  description="Strong growth across all key metrics."
+  stats={[
+    {
+      value: "$2.4M",
+      label: "Revenue",
+      icon: "DollarSign",
+      trend: "up",
+      trendValue: "23%",
+      period: "vs Q3 2024"
+    },
+    {
+      value: "$450K",
+      label: "Profit",
+      icon: "TrendingUp",
+      trend: "up",
+      trendValue: "18%",
+      period: "vs Q3 2024"
+    },
+    {
+      value: "32%",
+      label: "Margin",
+      icon: "Percent",
+      trend: "up",
+      trendValue: "2%",
+      period: "vs Q3 2024"
+    },
+    {
+      value: "$180",
+      label: "ARPU",
+      icon: "Users",
+      trend: "up",
+      trendValue: "12%",
+      period: "vs Q3 2024"
+    }
+  ]}
+  layout="grid"
+  columns={4}
+  showIcons={true}
+  backgroundColor="bg-green-50"
+/>`}
+/>
+
+### Variant 7: Team Stats
+
+Statistics about team performance and achievements.
+
+<CodePreview
+  code={`<StatsSectionBlock
+  variant="variant7"
+  title="Our Team"
+  description="Meet the people behind our success."
+  stats={[
+    {
+      value: "50+",
+      label: "Team Members",
+      icon: "Users",
+      details: "Across 12 countries"
+    },
+    {
+      value: "8",
+      label: "Departments",
+      icon: "Building",
+      details: "Engineering, Design, Sales, Marketing"
+    },
+    {
+      value: "95%",
+      label: "Employee Satisfaction",
+      icon: "Heart",
+      details: "Based on annual survey"
+    },
+    {
+      value: "3.2",
+      label: "Average Tenure",
+      icon: "Clock",
+      details: "Years with company"
+    }
+  ]}
+  layout="grid"
+  columns={2}
+  showIcons={true}
+  iconStyle="solid"
+  backgroundColor="bg-orange-50"
+/>`}
+/>
+
+## Usage
+
+\`\`\`tsx
+import { StatsSectionBlock } from "./stats-section";
+
+export default function AboutPage() {
+  return (
+    <main>
+      <StatsSectionBlock
+        variant="variant2"
+        title="Our Achievements"
+        description="Numbers that showcase our commitment to excellence."
+        stats={[
+          {
+            value: "5,000+",
+            label: "Projects Delivered",
+            icon: "CheckCircle",
+            description: "Successfully completed projects"
+          },
+          {
+            value: "98%",
+            label: "Client Retention",
+            icon: "Heart",
+            description: "Clients who work with us again"
+          },
+          {
+            value: "24/7",
+            label: "Support Available",
+            icon: "Clock",
+            description: "Round-the-clock assistance"
+          },
+          {
+            value: "10+",
+            label: "Years in Business",
+            icon: "Award",
+            description: "Proven track record"
+          }
+        ]}
+        layout="grid"
+        columns={4}
+        showIcons={true}
+        animated={true}
+        backgroundColor="bg-gray-50"
+      />
+    </main>
+  );
+}
+\`\`\`
+
+## Accessibility
+
+- Numbers are announced properly to screen readers
+- Icons have appropriate aria-hidden attributes
+- Trend indicators include accessible descriptions
+- Color is not the only way to convey information
+- Animation respects user's motion preferences
+\`\`\`
