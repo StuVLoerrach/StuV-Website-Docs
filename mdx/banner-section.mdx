@@ -25,23 +25,20 @@ Banner sections are typically used to highlight important information, promotion
 
 A basic banner with text and optional close button.
 
-<CodePreview
-  code={`<BannerSectionBlock
+<BannerSectionBlock
   variant="variant1"
   title="New Feature Available!"
   description="Check out our latest update with exciting new capabilities."
   backgroundColor="bg-blue-600"
   textColor="text-white"
   showCloseButton={true}
-/>`}
 />
 
 ### Variant 2: Banner with Action
 
 Banner with a call-to-action button.
 
-<CodePreview
-  code={`<BannerSectionBlock
+<BannerSectionBlock
   variant="variant2"
   title="Limited Time Offer"
   description="Get 20% off all products until the end of the month."
@@ -49,45 +46,39 @@ Banner with a call-to-action button.
   textColor="text-black"
   buttonText="Shop Now"
   buttonUrl="/shop"
-/>`}
 />
 
 ### Variant 3: Banner with Icon
 
 Banner with an icon for visual emphasis.
 
-<CodePreview
-  code={`<BannerSectionBlock
+<BannerSectionBlock
   variant="variant3"
   title="Important Notice"
   description="Our system will be under maintenance on Saturday."
   icon="Bell"
   backgroundColor="bg-red-500"
   textColor="text-white"
-/>`}
 />
 
 ### Variant 4: Countdown Banner
 
 Banner with a countdown timer.
 
-<CodePreview
-  code={`<BannerSectionBlock
+<BannerSectionBlock
   variant="variant4"
   title="Sale Ends Soon"
   description="Don't miss out on our biggest sale of the year!"
   endDate="2025-12-31T23:59:59"
   backgroundColor="bg-purple-600"
   textColor="text-white"
-/>`}
 />
 
 ### Variant 5: Multi-step Banner
 
 Banner with multiple steps or messages that can be navigated.
 
-<CodePreview
-  code={`<BannerSectionBlock
+<BannerSectionBlock
   variant="variant5"
   steps={[
     { title: "Step 1", description: "Create your account" },
@@ -96,15 +87,13 @@ Banner with multiple steps or messages that can be navigated.
   ]}
   backgroundColor="bg-green-600"
   textColor="text-white"
-/>`}
 />
 
 ### Variant 6: Cookie Consent Banner
 
 Banner specifically designed for cookie consent notices.
 
-<CodePreview
-  code={`<BannerSectionBlock
+<BannerSectionBlock
   variant="variant6"
   title="Cookie Notice"
   description="We use cookies to enhance your browsing experience."
@@ -114,13 +103,11 @@ Banner specifically designed for cookie consent notices.
   position="bottom"
   backgroundColor="bg-gray-800"
   textColor="text-white"
-/>`}
 />
 
 ## Usage
 
 \`\`\`tsx
-import { BannerSectionBlock } from "./banner-section";
 
 export default function HomePage() {
   return (

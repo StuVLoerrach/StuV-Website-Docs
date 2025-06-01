@@ -31,8 +31,7 @@ Hero sections are designed to make a strong first impression and communicate the
 
 A clean, minimal hero with heading, description, and call-to-action buttons.
 
-<CodePreview
-  code={`<HeroSectionBlock
+<HeroSectionBlock
   variant="variant1"
   title="Welcome to Our Platform"
   description="The all-in-one solution for your business needs."
@@ -41,15 +40,13 @@ A clean, minimal hero with heading, description, and call-to-action buttons.
   secondaryButtonText="Learn More"
   secondaryButtonUrl="/about"
   alignment="center"
-/>`}
 />
 
 ### Variant 2: Image Background Hero
 
 Hero with a background image and text overlay.
 
-<CodePreview
-  code={`<HeroSectionBlock
+<HeroSectionBlock
   variant="variant2"
   title="Discover New Possibilities"
   subtitle="Innovative Solutions for Modern Challenges"
@@ -59,15 +56,13 @@ Hero with a background image and text overlay.
   primaryButtonUrl="/demo"
   overlayOpacity={60}
   height="large"
-/>`}
 />
 
 ### Variant 3: Video Background Hero
 
 Hero with a background video for dynamic visual impact.
 
-<CodePreview
-  code={`<HeroSectionBlock
+<HeroSectionBlock
   variant="variant3"
   title="Experience the Difference"
   description="See how our solutions transform businesses."
@@ -76,15 +71,13 @@ Hero with a background video for dynamic visual impact.
   primaryButtonUrl="/demo"
   textColor="text-white"
   height="full"
-/>`}
 />
 
 ### Variant 4: Split Hero
 
 Hero with content on one side and image/video on the other.
 
-<CodePreview
-  code={`<HeroSectionBlock
+<HeroSectionBlock
   variant="variant4"
   title="Built for Growth"
   description="Our platform scales with your business, providing the tools you need at every stage."
@@ -92,15 +85,13 @@ Hero with content on one side and image/video on the other.
   primaryButtonText="Try It Free"
   primaryButtonUrl="/trial"
   alignment="left"
-/>`}
 />
 
 ### Variant 5: Hero with Form
 
 Hero section with an integrated signup or contact form.
 
-<CodePreview
-  code={`<HeroSectionBlock
+<HeroSectionBlock
   variant="variant5"
   title="Join Our Community"
   description="Get access to exclusive content and updates."
@@ -108,15 +99,13 @@ Hero section with an integrated signup or contact form.
   formFields={["name", "email"]}
   submitButtonText="Subscribe"
   alignment="center"
-/>`}
 />
 
 ### Variant 6: Hero with Features
 
 Hero that highlights key features or benefits.
 
-<CodePreview
-  code={`<HeroSectionBlock
+<HeroSectionBlock
   variant="variant6"
   title="One Platform, Multiple Solutions"
   description="Everything you need to succeed in one place."
@@ -127,15 +116,13 @@ Hero that highlights key features or benefits.
   ]}
   primaryButtonText="Get Started"
   primaryButtonUrl="/signup"
-/>`}
 />
 
 ### Variant 7: Animated Hero
 
 Hero with animated elements for visual interest.
 
-<CodePreview
-  code={`<HeroSectionBlock
+<HeroSectionBlock
   variant="variant7"
   title="Innovation Reimagined"
   description="Discover the future of digital experiences."
@@ -143,15 +130,13 @@ Hero with animated elements for visual interest.
   primaryButtonText="Explore"
   primaryButtonUrl="/products"
   backgroundGradient="bg-gradient-to-r from-purple-500 to-blue-500"
-/>`}
 />
 
 ### Variant 8: Hero with Stats
 
 Hero that showcases important statistics or achievements.
 
-<CodePreview
-  code={`<HeroSectionBlock
+<HeroSectionBlock
   variant="variant8"
   title="Trusted by Thousands"
   description="Join the companies already benefiting from our platform."
@@ -162,15 +147,13 @@ Hero that showcases important statistics or achievements.
   ]}
   primaryButtonText="Join Them"
   primaryButtonUrl="/customers"
-/>`}
 />
 
 ### Variant 9: Hero with Testimonial
 
 Hero featuring a prominent customer testimonial.
 
-<CodePreview
-  code={`<HeroSectionBlock
+<HeroSectionBlock
   variant="variant9"
   title="Don't Just Take Our Word For It"
   testimonial={{
@@ -181,13 +164,11 @@ Hero featuring a prominent customer testimonial.
   }}
   primaryButtonText="Read More Stories"
   primaryButtonUrl="/testimonials"
-/>`}
 />
 
 ## Usage
 
 \`\`\`tsx
-import { HeroSectionBlock } from "./hero-section";
 
 export default function HomePage() {
   return (
