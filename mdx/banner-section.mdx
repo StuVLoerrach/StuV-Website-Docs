@@ -4,119 +4,135 @@ The Banner Section component displays prominent announcements or messages at the
 
 ## Overview
 
-Banner sections are typically used to highlight important information, promotions, or announcements. They are designed to be attention-grabbing and concise.
+Banner sections are typically used to highlight important information, promotions, or announcements. They are designed to be attention-grabbing and concise. The appearance and functionality of the banner are determined by the `type` you select.
 
 ## Props
 
 | Prop | Type | Description | Default |
 |------|------|-------------|---------|
-| `variant` | `string` | The variant of the banner to display | `"variant1"` |
-| `title` | `string` | The main heading text | `""` |
-| `description` | `string` | The descriptive text | `""` |
-| `backgroundColor` | `string` | Background color of the banner | `"bg-primary"` |
-| `textColor` | `string` | Text color of the banner | `"text-white"` |
-| `showCloseButton` | `boolean` | Whether to show a close button | `true` |
-| `position` | `"top" \| "bottom"` | Position of the banner | `"top"` |
-| `fullWidth` | `boolean` | Whether the banner spans the full width | `true` |
+| `type` | `'variant1' \| 'variant2' \| ...` | Select the layout variant for this banner section. | `null` |
+| `heading` | `string` | Main heading for the banner section. | `""` |
+| `description` | `string` | Short description or value proposition for the banner. | `""` |
+| `ctaLink` | `object` | Link for the call-to-action button. Appears in most banner variants. | `null` |
+| `image` | `string \| Media` | Select an image to be displayed in the banner for **Variant 2**. | `null` |
+| `variant` | `'default' \| 'destructive'` | Select the alert style for the banner (e.g., for error states). | `"default"` |
+| `endDate` | `string` | Set the date when this banner will stop being displayed. This is only applicable for **Variant 5**. | `null` |
 
 ## Variants
 
 ### Variant 1: Simple Banner
 
-A basic banner with text and optional close button.
+A basic banner with a heading and description.
 
 <BannerSectionBlock
-  variant="variant1"
-  title="New Feature Available!"
+  blockType="bannerSection"
+  type="variant1"
+  heading="New Feature Available!"
   description="Check out our latest update with exciting new capabilities."
-  backgroundColor="bg-blue-600"
-  textColor="text-white"
-  showCloseButton={true}
+  variant="default"
 />
 
-### Variant 2: Banner with Action
+### Variant 2: Banner with Action and Image
 
-Banner with a call-to-action button.
+Banner with a call-to-action button and a background image.
 
 <BannerSectionBlock
-  variant="variant2"
-  title="Limited Time Offer"
+  blockType="bannerSection"
+  type="variant2"
+  heading="Limited Time Offer"
   description="Get 20% off all products until the end of the month."
-  backgroundColor="bg-amber-500"
-  textColor="text-black"
-  buttonText="Shop Now"
-  buttonUrl="/shop"
+  image="/images/sale-banner.jpg"
+  ctaLink={{
+    type: 'custom',
+    customUrl: '/shop',
+    label: 'Shop Now',
+    appearance: 'outline'
+  }}
 />
 
-### Variant 3: Banner with Icon
+### Variant 3: Informational Banner
 
-Banner with an icon for visual emphasis.
+A standard layout for general announcements.
 
 <BannerSectionBlock
-  variant="variant3"
-  title="Important Notice"
+  blockType="bannerSection"
+  type="variant3"
+  heading="Important Notice"
   description="Our system will be under maintenance on Saturday."
-  icon="Bell"
-  backgroundColor="bg-red-500"
-  textColor="text-white"
+  variant="destructive"
 />
 
-### Variant 4: Countdown Banner
+### Variant 4: Promotional Banner
 
-Banner with a countdown timer.
+Another layout variant for highlighting promotions or key messages.
 
 <BannerSectionBlock
-  variant="variant4"
-  title="Sale Ends Soon"
+  blockType="bannerSection"
+  type="variant4"
+  heading="Our Biggest Sale"
   description="Don't miss out on our biggest sale of the year!"
+/>
+
+### Variant 5: Countdown Banner
+
+This banner variant includes an `endDate` prop, intended for use with a countdown timer.
+
+<BannerSectionBlock
+  blockType="bannerSection"
+  type="variant5"
+  heading="Sale Ends Soon!"
+  description="This offer expires at midnight."
   endDate="2025-12-31T23:59:59"
-  backgroundColor="bg-purple-600"
-  textColor="text-white"
 />
 
-### Variant 5: Multi-step Banner
+### Variant 6: Generic Banner
 
-Banner with multiple steps or messages that can be navigated.
-
-<BannerSectionBlock
-  variant="variant5"
-  steps={[
-    { title: "Step 1", description: "Create your account" },
-    { title: "Step 2", description: "Set up your profile" },
-    { title: "Step 3", description: "Start exploring" }
-  ]}
-  backgroundColor="bg-green-600"
-  textColor="text-white"
-/>
-
-### Variant 6: Cookie Consent Banner
-
-Banner specifically designed for cookie consent notices.
+A versatile banner layout for various use cases.
 
 <BannerSectionBlock
-  variant="variant6"
-  title="Cookie Notice"
-  description="We use cookies to enhance your browsing experience."
-  acceptButtonText="Accept All"
-  rejectButtonText="Reject Non-Essential"
-  settingsButtonText="Cookie Settings"
-  position="bottom"
-  backgroundColor="bg-gray-800"
-  textColor="text-white"
+  blockType="bannerSection"
+  type="variant6"
+  heading="We Value Your Feedback"
+  description="Let us know how we can improve your experience."
+  ctaLink={{
+    type: 'internal',
+    internalPath: '/feedback',
+    label: 'Give Feedback'
+  }}
 />
 
 ## Usage
 
 ```tsx
+import { BannerSectionBlock } from './types'; // Assuming types are in a file
+import { Page } from './types'; // Assuming a Page type exists
+
 function HomePage() {
+  const samplePageReference: Page = { /* ... page data */ };
+
   return (
     <main>
       <BannerSectionBlock
-        variant="variant1"
-        title="Welcome to our site!"
+        blockType="bannerSection"
+        type="variant1"
+        heading="Welcome to our site!"
         description="Explore our new features and content."
-        backgroundColor="bg-blue-600"
-        textColor="text-white"
+      />
+      
+      {/* Example with a CTA linking to another page in the CMS */}
+      <BannerSectionBlock
+        blockType="bannerSection"
+        type="variant2"
+        heading="Learn More About Us"
+        description="Discover our company's mission and values."
+        ctaLink={{
+          type: 'reference',
+          reference: {
+            relationTo: 'pages',
+            value: samplePageReference
+          },
+          label: 'About Us'
+        }}
       />
       
       {/* Rest of your page content */}
@@ -127,7 +143,7 @@ function HomePage() {
 
 ## Accessibility
 
-- All banners are announced to screen readers using appropriate ARIA roles
-- Close buttons have accessible labels
-- Color contrast meets WCAG AA standards
-- Keyboard navigation is fully supported
+- All banners are announced to screen readers using appropriate ARIA roles.
+- Links within the `ctaLink` prop should have accessible labels.
+- Ensure color contrast of rendered banners meets WCAG AA standards.
+- Keyboard navigation is fully supported for interactive elements like the `ctaLink`.
